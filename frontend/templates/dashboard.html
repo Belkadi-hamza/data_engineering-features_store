@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Feature Store Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="../static/js/api.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="brand-wrap">
+          <div class="brand-icon">BF</div>
+          <div>
+            <div class="brand-title">Bank Feature Store</div>
+            <div class="brand-subtitle">Churn prediction</div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link active" href="dashboard.html">
+            <span data-feather="home"></span>
+            Dashboard
+          </a>
+          <a class="sidebar-link" href="customer.html">
+            <span data-feather="user"></span>
+            Customer Details
+          </a>
+          <a class="sidebar-link" href="prediction.html">
+            <span data-feather="cpu"></span>
+            Prediction
+          </a>
+          <a class="sidebar-link" href="transactions.html">
+            <span data-feather="bar-chart-2"></span>
+            Transactions
+          </a>
+          <a class="sidebar-link" href="simulation.html">
+            <span data-feather="shuffle"></span>
+            Simulation
+          </a>
+          <a class="sidebar-link" href="sync.html">
+            <span data-feather="refresh-cw"></span>
+            Synchronization
+          </a>
+          <a class="sidebar-link" href="monitoring.html">
+            <span data-feather="monitor"></span>
+            Monitoring
+          </a>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="topbar">
+          <div>
+            <h1>Dashboard</h1>
+            <p>AI-powered customer churn monitoring and banking insights</p>
+          </div>
+          <div class="topbar-actions">
+            <button id="dashboard-refresh-button" class="btn btn-outline">Refresh</button>
+            <button class="btn btn-primary">New analysis</button>
+          </div>
+        </header>
+
+        <section class="panel grid grid-2">
+          <article class="card health-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">System Health</p>
+                <h2>Operational status</h2>
+              </div>
+              <span class="status-badge status-ok">Live</span>
+            </div>
+            <div class="health-grid">
+              <div class="health-item">
+                <span>MongoDB Status</span>
+                <strong id="dashboard-mongo-status">Connected</strong>
+              </div>
+              <div class="health-item">
+                <span>ML Model Status</span>
+                <strong id="dashboard-model-status">Loaded</strong>
+              </div>
+              <div class="health-item">
+                <span>Customers</span>
+                <strong id="dashboard-customer-count">12,482</strong>
+              </div>
+              <div class="health-item">
+                <span>API Status</span>
+                <strong id="dashboard-api-status">Operational</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="card stats-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Performance</p>
+                <h2>Key statistics</h2>
+              </div>
+              <span class="badge badge-soft-blue">Realtime insights</span>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-block">
+                <p>Total Customers</p>
+                <h3>12,482</h3>
+                <span class="stat-meta">+3.8% this month</span>
+              </div>
+              <div class="stat-block">
+                <p>Average Credit Limit</p>
+                <h3>$58,220</h3>
+                <span class="stat-meta">+1.9% vs last period</span>
+              </div>
+              <div class="stat-block">
+                <p>Average Transactions</p>
+                <h3>18.4 / month</h3>
+                <span class="stat-meta">Stable trend</span>
+              </div>
+              <div class="stat-block">
+                <p>Avg Utilization Ratio</p>
+                <h3>39.7%</h3>
+                <span class="stat-meta">Down 2.1%</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel grid grid-3">
+          <article class="card activity-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Recent Activity</p>
+                <h2>Latest events</h2>
+              </div>
+            </div>
+            <div class="activity-list">
+              <div class="activity-item">
+                <div>
+                  <p>Customer search executed</p>
+                  <span>11 min ago</span>
+                </div>
+                <strong>CLIENTNUM 768805383</strong>
+              </div>
+              <div class="activity-item">
+                <div>
+                  <p>Churn prediction run</p>
+                  <span>32 min ago</span>
+                </div>
+                <strong>Risk score 82%</strong>
+              </div>
+              <div class="activity-item">
+                <div>
+                  <p>Transaction simulation</p>
+                  <span>1 hr ago</span>
+                </div>
+                <strong>42 records generated</strong>
+              </div>
+              <div class="activity-item">
+                <div>
+                  <p>Database sync completed</p>
+                  <span>3 hrs ago</span>
+                </div>
+                <strong>Updated 12,482 customers</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="card actions-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Quick Actions</p>
+                <h2>Jump to workflow</h2>
+              </div>
+            </div>
+            <div class="actions-grid">
+              <button class="action-button">
+                <span data-feather="search"></span>
+                Search Customer
+              </button>
+              <button class="action-button">
+                <span data-feather="trending-up"></span>
+                Predict Churn
+              </button>
+              <button class="action-button">
+                <span data-feather="repeat"></span>
+                Simulate Transactions
+              </button>
+              <button class="action-button primary">
+                <span data-feather="database"></span>
+                Synchronize Database
+              </button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      feather.replace({ 'stroke-width': 2.5 });
+    </script>
+  </body>
+</html>

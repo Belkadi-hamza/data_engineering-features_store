@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MLOps Monitoring - Bank Feature Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="brand-wrap">
+          <div class="brand-icon">BF</div>
+          <div>
+            <div class="brand-title">Bank Feature Store</div>
+            <div class="brand-subtitle">MLOps monitoring</div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link" href="dashboard.html">
+            <span data-feather="home"></span>
+            Dashboard
+          </a>
+          <a class="sidebar-link" href="customer.html">
+            <span data-feather="user"></span>
+            Customer Details
+          </a>
+          <a class="sidebar-link" href="prediction.html">
+            <span data-feather="cpu"></span>
+            Prediction
+          </a>
+          <a class="sidebar-link" href="transactions.html">
+            <span data-feather="bar-chart-2"></span>
+            Transactions
+          </a>
+          <a class="sidebar-link" href="simulation.html">
+            <span data-feather="shuffle"></span>
+            Simulation
+          </a>
+          <a class="sidebar-link" href="sync.html">
+            <span data-feather="refresh-cw"></span>
+            Synchronization
+          </a>
+          <a class="sidebar-link active" href="monitoring.html">
+            <span data-feather="monitor"></span>
+            Monitoring
+          </a>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="topbar">
+          <div>
+            <h1>MLOps Monitoring</h1>
+            <p>Track the health and metrics of the feature store pipeline in realtime.</p>
+          </div>
+          <div class="topbar-actions">
+            <button id="monitor-refresh-button" class="btn btn-outline">Refresh metrics</button>
+            <button class="btn btn-primary">Open alerts</button>
+          </div>
+        </header>
+
+        <section class="panel monitoring-grid">
+          <article class="card metric-card">
+            <div class="metric-label">MongoDB Status</div>
+            <div id="monitor-mongo-status" class="metric-value status-good">Connected</div>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-label">Feature Store Status</div>
+            <div id="monitor-feature-status" class="metric-value status-good">Healthy</div>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-label">Machine Learning Model</div>
+            <div class="metric-value status-warning">Retraining</div>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-label">FastAPI</div>
+            <div class="metric-value status-good">Online</div>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-label">API Latency</div>
+            <div class="metric-value">84 ms</div>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-label">Database Size</div>
+            <div class="metric-value">45.2 GB</div>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-label">Number of Customers</div>
+            <div class="metric-value">12,482</div>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-label">Model Version</div>
+            <div class="metric-value">v2.3.1</div>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-label">Feature Store Version</div>
+            <div class="metric-value">v1.8.0</div>
+          </article>
+        </section>
+
+        <section class="panel monitoring-detail-grid">
+          <article class="card logs-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Recent Logs</p>
+                <h2>Event stream</h2>
+              </div>
+            </div>
+            <div class="log-list">
+              <div class="log-row">
+                <span>10:45:22</span>
+                <p>MongoDB sync completed successfully.</p>
+              </div>
+              <div class="log-row">
+                <span>10:44:10</span>
+                <p>Feature materialization pipeline started.</p>
+              </div>
+              <div class="log-row">
+                <span>10:42:03</span>
+                <p>Model retraining job queued.</p>
+              </div>
+              <div class="log-row">
+                <span>10:40:18</span>
+                <p>Prediction API responded in 84 ms.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card alerts-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">System Alerts</p>
+                <h2>Active notifications</h2>
+              </div>
+            </div>
+            <div class="alert-list">
+              <div class="alert-row alert-warning">
+                <div>
+                  <strong>Feature refresh delay</strong>
+                  <p>Data ingestion lagging by 3 minutes.</p>
+                </div>
+                <span>Warning</span>
+              </div>
+              <div class="alert-row alert-critical">
+                <div>
+                  <strong>Model drift detected</strong>
+                  <p>Performance drop on churn prediction.</p>
+                </div>
+                <span>Critical</span>
+              </div>
+              <div class="alert-row alert-info">
+                <div>
+                  <strong>API latency stable</strong>
+                  <p>Average response within 90 ms.</p>
+                </div>
+                <span>Info</span>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../static/js/api.js"></script>
+    <script>
+      feather.replace({ 'stroke-width': 2.5 });
+    </script>
+  </body>
+</html>

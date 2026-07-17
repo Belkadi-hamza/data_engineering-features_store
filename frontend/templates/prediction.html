@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Churn Prediction - Bank Feature Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="brand-wrap">
+          <div class="brand-icon">BF</div>
+          <div>
+            <div class="brand-title">Bank Feature Store</div>
+            <div class="brand-subtitle">Churn prediction</div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link" href="dashboard.html">
+            <span data-feather="home"></span>
+            Dashboard
+          </a>
+          <a class="sidebar-link" href="customer.html">
+            <span data-feather="user"></span>
+            Customer Details
+          </a>
+          <a class="sidebar-link active" href="prediction.html">
+            <span data-feather="cpu"></span>
+            Prediction
+          </a>
+          <a class="sidebar-link" href="transactions.html">
+            <span data-feather="bar-chart-2"></span>
+            Transactions
+          </a>
+          <a class="sidebar-link" href="simulation.html">
+            <span data-feather="shuffle"></span>
+            Simulation
+          </a>
+          <a class="sidebar-link" href="sync.html">
+            <span data-feather="refresh-cw"></span>
+            Synchronization
+          </a>
+          <a class="sidebar-link" href="monitoring.html">
+            <span data-feather="monitor"></span>
+            Monitoring
+          </a>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="topbar">
+          <div>
+            <h1>AI Customer Churn Prediction</h1>
+            <p>Review customer risk and probability in one modern dashboard.</p>
+          </div>
+          <div class="topbar-actions prediction-toolbar">
+            <label for="prediction-client-id" class="toolbar-label">Client ID</label>
+            <input id="prediction-client-id" type="number" min="0" placeholder="Enter client ID" />
+            <button id="prediction-run-button" class="btn btn-primary">Predict</button>
+            <button id="prediction-refresh-button" class="btn btn-outline">Refresh</button>
+          </div>
+        </header>
+
+        <section class="panel prediction-grid">
+          <article class="card prediction-summary-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Customer information</p>
+                <h2>Profile summary</h2>
+              </div>
+            </div>
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span>Customer</span>
+                <strong id="prediction-client-display">No client selected</strong>
+                <small class="field-hint">Enter a client ID above to view prediction results.</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="card prediction-result-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Prediction result</p>
+                <h2>Churn outcome</h2>
+              </div>
+              <span id="prediction-risk-chip" class="risk-chip risk-neutral">Awaiting</span>
+            </div>
+
+            <div class="result-body">
+              <div class="result-label">
+                <p>Prediction Label</p>
+                <strong id="prediction-label">-</strong>
+              </div>
+              <div class="probability-panel">
+                <div class="probability-gauge">
+                  <div id="prediction-probability" class="gauge-value">-</div>
+                </div>
+                <div class="probability-meta">
+                  <p>Probability</p>
+                  <strong id="prediction-percent">-</strong>
+                  <span id="prediction-status">-</span>
+                </div>
+              </div>
+              <div class="probability-chart-card">
+                <div class="chart-header">
+                  <span>Churn probability chart</span>
+                  <strong id="prediction-probability-label">Awaiting prediction</strong>
+                </div>
+                <div class="chart-track">
+                  <div id="prediction-chart-bar" class="chart-bar"></div>
+                </div>
+                <div class="chart-scale">
+                  <span>0%</span>
+                  <span>50%</span>
+                  <span>100%</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../static/js/api.js"></script>
+    <script>
+      feather.replace({ 'stroke-width': 2.5 });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction Management - Bank Feature Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="brand-wrap">
+          <div class="brand-icon">BF</div>
+          <div>
+            <div class="brand-title">Bank Feature Store</div>
+            <div class="brand-subtitle">Transaction management</div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link" href="dashboard.html">
+            <span data-feather="home"></span>
+            Dashboard
+          </a>
+          <a class="sidebar-link" href="customer.html">
+            <span data-feather="user"></span>
+            Customer Details
+          </a>
+          <a class="sidebar-link" href="prediction.html">
+            <span data-feather="cpu"></span>
+            Prediction
+          </a>
+          <a class="sidebar-link active" href="transactions.html">
+            <span data-feather="bar-chart-2"></span>
+            Transactions
+          </a>
+          <a class="sidebar-link" href="simulation.html">
+            <span data-feather="shuffle"></span>
+            Simulation
+          </a>
+          <a class="sidebar-link" href="sync.html">
+            <span data-feather="refresh-cw"></span>
+            Synchronization
+          </a>
+          <a class="sidebar-link" href="monitoring.html">
+            <span data-feather="monitor"></span>
+            Monitoring
+          </a>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="topbar customer-topbar">
+          <div>
+            <h1>Transaction Management</h1>
+            <p>Manage client transactions with quick updates and history tracking.</p>
+          </div>
+          <div class="search-box">
+            <input id="transaction-search-input" type="search" placeholder="Search client by ID" />
+            <button id="transaction-search-button" class="btn btn-primary">Find Client</button>
+          </div>
+        </header>
+
+        <section class="panel transaction-grid">
+          <article class="card transaction-summary-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Customer summary</p>
+                <h2>Client snapshot</h2>
+              </div>
+              <span class="status-badge status-ok">Verified</span>
+            </div>
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span>Client ID</span>
+                <strong id="transaction-client-id-display">768805383</strong>
+              </div>
+              <div class="summary-item">
+                <span>Total Transactions</span>
+                <strong id="transaction-total-transactions">000</strong>
+              </div>
+              <div class="summary-item">
+                <span>Total Amount</span>
+                <strong id="transaction-total-amount">$00,000</strong>
+              </div>
+              <div class="summary-item">
+                <span>Current Utilization</span>
+                <strong id="transaction-utilization">00.0%</strong>
+              </div>
+              <div class="summary-item">
+                <span>Card Category</span>
+                <strong>Platinum</strong>
+              </div>
+              <div class="summary-item">
+                <span>Income Category</span>
+                <strong>$80K - $120K</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="card transaction-form-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Add transaction</p>
+                <h2>Transaction form</h2>
+              </div>
+            </div>
+            <form class="transaction-form">
+              <label>
+                Client ID
+                <input id="transaction-client-id" type="text" placeholder="Enter client ID" />
+              </label>
+              <label>
+                Transaction Amount
+                <input id="transaction-amount" type="text" placeholder="$0.00" />
+              </label>
+              <button type="submit" class="btn btn-primary">Add Transaction</button>
+            </form>
+            <div class="updated-summary">
+              <div class="update-item">
+                <span>Updated Transaction Count</span>
+                <strong id="update-count">000</strong>
+              </div>
+              <div class="update-item">
+                <span>Updated Total Amount</span>
+                <strong id="update-amount">$00,000</strong>
+              </div>
+              <div class="update-item">
+                <span>Updated Utilization Ratio</span>
+                <strong id="update-utilization">00.0%</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../static/js/api.js"></script>
+    <script>
+      feather.replace({ 'stroke-width': 2.5 });
+    </script>
+  </body>
+</html>

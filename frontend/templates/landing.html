@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Banking Feature Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/css/dashboard.css" />
+  </head>
+  <body class="landing-body">
+    <div class="landing-shell">
+      <header class="landing-header">
+        <div class="brand-logo">Bank Feature Store</div>
+        <nav class="landing-nav">
+            <a href="landing.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="customer.html">Customer Details</a>
+            <a href="prediction.html">Prediction</a>
+            <a href="transactions.html">Transactions</a>
+            <a href="simulation.html">Simulation</a>
+      </header>
+
+      <main class="landing-main">
+        <section class="hero-section">
+          <div class="hero-copy">
+            <span class="hero-label">AI-Powered Customer Churn Prediction</span>
+            <h1>Real-Time Feature Store with Feast, MongoDB, FastAPI and Machine Learning</h1>
+            <p>Build a modern banking feature store pipeline with end-to-end customer churn prediction, online serving, and scalable MLOps operations.</p>
+            <div class="hero-actions">
+              <a href="dashboard.html" class="btn btn-primary">Open Dashboard</a>
+              <a href="#api-docs" class="btn btn-outline">View API Docs</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-card hero-card-top">
+              <h3>Interactive Dashboard</h3>
+              <p>Track customers, predictions, and system health from one portal.</p>
+            </div>
+            <div class="hero-card hero-card-bottom">
+              <h3>Real-Time Prediction</h3>
+              <p>Refresh churn risk as new feature data streams in.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel feature-cards">
+          <article class="feature-card">
+            <h3>Feature Store</h3>
+            <p>Manage reusable feature definitions and materialize feature data efficiently.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Machine Learning</h3>
+            <p>Train and evaluate churn models with historical and online feature data.</p>
+          </article>
+          <article class="feature-card">
+            <h3>MongoDB</h3>
+            <p>Store online feature values for low-latency access by scoring services.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Real-Time Prediction</h3>
+            <p>Serve customer risk scores instantly through the API layer.</p>
+          </article>
+          <article class="feature-card">
+            <h3>FastAPI</h3>
+            <p>Lightweight REST API for scoring, health checks, and metadata retrieval.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Interactive Dashboard</h3>
+            <p>Visualize system status, analytics, and transaction workflows.</p>
+          </article>
+        </section>
+
+        <section class="panel architecture-section">
+          <div class="architecture-label">Architecture Illustration</div>
+          <div class="architecture-flow">
+            <div class="flow-step">Dataset</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">Feature Store</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">Training</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">Online Store</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">MongoDB</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">FastAPI</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">Prediction</div>
+          </div>
+        </section>
+
+        <section class="panel api-docs-section" id="api-docs">
+          <div class="docs-left">
+            <h2>Production-Ready Platform</h2>
+            <p>Use a battle-tested stack to manage feature engineering, model training, online serving and inference in a unified AI banking product.</p>
+          </div>
+          <div class="docs-right">
+            <div class="tech-pill">Python</div>
+            <div class="tech-pill">FastAPI</div>
+            <div class="tech-pill">Feast</div>
+            <div class="tech-pill">MongoDB</div>
+            <div class="tech-pill">Scikit-learn</div>
+            <div class="tech-pill">Bootstrap</div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="landing-footer">
+        <p>Bank Feature Store · AI Banking Feature Store powered by FastAPI, Feast, and MongoDB.</p>
+      </footer>
+    </div>
+  </body>
+</html>

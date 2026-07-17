@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Details - Bank Feature Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="brand-wrap">
+          <div class="brand-icon">BF</div>
+          <div>
+            <div class="brand-title">Bank Feature Store</div>
+            <div class="brand-subtitle">Customer details</div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link" href="dashboard.html">
+            <span data-feather="home"></span>
+            Dashboard
+          </a>
+          <a class="sidebar-link active" href="customer.html">
+            <span data-feather="user"></span>
+            Customer Details
+          </a>
+          <a class="sidebar-link" href="prediction.html">
+            <span data-feather="cpu"></span>
+            Prediction
+          </a>
+          <a class="sidebar-link" href="transactions.html">
+            <span data-feather="bar-chart-2"></span>
+            Transactions
+          </a>
+          <a class="sidebar-link" href="simulation.html">
+            <span data-feather="shuffle"></span>
+            Simulation
+          </a>
+          <a class="sidebar-link" href="sync.html">
+            <span data-feather="refresh-cw"></span>
+            Synchronization
+          </a>
+          <a class="sidebar-link" href="monitoring.html">
+            <span data-feather="monitor"></span>
+            Monitoring
+          </a>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="topbar customer-topbar">
+          <div>
+            <h1>Customer Details</h1>
+            <p>Search for a client and review account, financial, and activity data.</p>
+          </div>
+          <div class="search-box">
+            <input id="customer-search-input" type="search" placeholder="Enter client ID or name" />
+            <button id="customer-search-button" class="btn btn-primary">Search</button>
+          </div>
+        </header>
+
+        <section class="panel customer-panel">
+          <article class="card customer-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Customer information</p>
+                <h2>Client profile</h2>
+              </div>
+              <span class="status-badge status-ok">Active</span>
+            </div>
+            <div class="info-grid">
+              <div class="info-item">
+                <span>Client ID</span>
+                <strong id="customer-id">000000000</strong>
+              </div>
+              <div class="info-item">
+                <span>Age</span>
+                <strong id="customer-age">00</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="card customer-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Financial overview</p>
+                <h2>Account metrics</h2>
+              </div>
+            </div>
+            <div class="info-grid">
+              <div class="info-item">
+                <span>Credit Limit</span>
+                <strong id="customer-credit-limit">$00,000</strong>
+              </div>
+              <div class="info-item">
+                <span>Revolving Balance</span>
+                <strong id="customer-revolving-balance">$00,000</strong>
+              </div>
+              <div class="info-item">
+                <span>Open To Buy</span>
+                <strong id="customer-open-to-buy">$00,000</strong>
+              </div>
+              <div class="info-item">
+                <span>Utilization Ratio</span>
+                <strong id="customer-utilization">00.0%</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="card customer-card full-width-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Activity information</p>
+                <h2>Usage & relationship</h2>
+              </div>
+            </div>
+            <div class="info-grid activity-grid">
+              <div class="info-item">
+                <span>Total Transactions</span>
+                <strong id="customer-transactions">000</strong>
+              </div>
+              <div class="info-item">
+                <span>Total Transaction Amount</span>
+                <strong id="customer-total-amount">$00,000</strong>
+              </div>
+              <div class="info-item">
+                <span>Months on Book</span>
+                <strong id="customer-months-book">00</strong>
+              </div>
+              <div class="info-item">
+                <span>Relationship Count</span>
+                <strong id="customer-relations">00</strong>
+              </div>
+              <div class="info-item">
+                <span>Contacts Last 12 Months</span>
+                <strong id="customer-contacts">00</strong>
+              </div>
+              <div class="info-item">
+                <span>Inactive Months</span>
+                <strong id="customer-inactive-months">00</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="card actions-card customer-actions-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Actions</p>
+                <h2>Run customer workflows</h2>
+              </div>
+            </div>
+            <div class="actions-grid">
+              <button class="action-button primary">
+                <span data-feather="alert-circle"></span>
+                Predict Churn
+              </button>
+              <button class="action-button">
+                <span data-feather="credit-card"></span>
+                Add Transaction
+              </button>
+              <button class="action-button">
+                <span data-feather="shuffle"></span>
+                Simulate Transactions
+              </button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../static/js/api.js"></script>
+    <script>
+      feather.replace({ 'stroke-width': 2.5 });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database Synchronization - Bank Feature Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="brand-wrap">
+          <div class="brand-icon">BF</div>
+          <div>
+            <div class="brand-title">Bank Feature Store</div>
+            <div class="brand-subtitle">Database synchronization</div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link" href="dashboard.html">
+            <span data-feather="home"></span>
+            Dashboard
+          </a>
+          <a class="sidebar-link" href="customer.html">
+            <span data-feather="user"></span>
+            Customer Details
+          </a>
+          <a class="sidebar-link" href="prediction.html">
+            <span data-feather="cpu"></span>
+            Prediction
+          </a>
+          <a class="sidebar-link" href="transactions.html">
+            <span data-feather="bar-chart-2"></span>
+            Transactions
+          </a>
+          <a class="sidebar-link" href="simulation.html">
+            <span data-feather="shuffle"></span>
+            Simulation
+          </a>
+          <a class="sidebar-link active" href="sync.html">
+            <span data-feather="refresh-cw"></span>
+            Synchronization
+          </a>
+          <a class="sidebar-link" href="monitoring.html">
+            <span data-feather="monitor"></span>
+            Monitoring
+          </a>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="topbar">
+          <div>
+            <h1>Database Synchronization</h1>
+            <p>Orchestrate feature store updates and keep the ML pipeline aligned.</p>
+          </div>
+          <div class="topbar-actions">
+            <button id="sync-now-button" class="btn btn-primary">Synchronize Now</button>
+          </div>
+        </header>
+
+        <section class="panel sync-flow-grid">
+          <article class="card sync-step-card">
+            <span class="step-label">Offline Store</span>
+            <h3>Raw data ingestion</h3>
+            <p>Source data is captured and staged for feature generation.</p>
+          </article>
+          <div class="sync-arrow">↓</div>
+          <article class="card sync-step-card">
+            <span class="step-label">Feature Store</span>
+            <h3>Feature materialization</h3>
+            <p>ETL pipelines transform data into reusable features.</p>
+          </article>
+          <div class="sync-arrow">↓</div>
+          <article class="card sync-step-card">
+            <span class="step-label">MongoDB</span>
+            <h3>Online store sync</h3>
+            <p>Feature values are persisted to MongoDB for realtime access.</p>
+          </article>
+          <div class="sync-arrow">↓</div>
+          <article class="card sync-step-card">
+            <span class="step-label">Machine Learning Model</span>
+            <h3>Model retraining</h3>
+            <p>Updated features are used to refresh the scoring model.</p>
+          </article>
+          <div class="sync-arrow">↓</div>
+          <article class="card sync-step-card">
+            <span class="step-label">Prediction API</span>
+            <h3>Production inference</h3>
+            <p>The API serves predictions based on the latest feature data.</p>
+          </article>
+        </section>
+
+        <section class="panel sync-status-grid">
+          <article class="card sync-progress-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Progress</p>
+                <h2>Synchronization status</h2>
+              </div>
+            </div>
+            <div class="progress-track sync-progress-track">
+              <div id="sync-progress-bar" class="progress-fill" style="width: 86%;"></div>
+            </div>
+            <div class="progress-summary">
+              <span id="sync-progress-text">86% complete</span>
+              <strong id="sync-status-message">Updating feature pipeline</strong>
+            </div>
+          </article>
+
+          <article class="card sync-result-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Synchronization metrics</p>
+                <h2>Execution results</h2>
+              </div>
+            </div>
+            <div class="sync-metrics-grid">
+              <div class="sync-metric-card">
+                <span>Synchronization Success</span>
+                <strong>Yes</strong>
+              </div>
+              <div class="sync-metric-card">
+                <span>Execution Time</span>
+                <strong>1m 42s</strong>
+              </div>
+              <div class="sync-metric-card">
+                <span>Updated Customers</span>
+                <strong>12,482</strong>
+              </div>
+              <div class="sync-metric-card">
+                <span>Last Sync Time</span>
+                <strong>2026-07-02 10:32</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../static/js/api.js"></script>
+    <script>
+      feather.replace({ 'stroke-width': 2.5 });
+    </script>
+  </body>
+</html>

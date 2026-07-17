@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction Simulation - Bank Feature Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <aside class="dashboard-sidebar">
+        <div class="brand-wrap">
+          <div class="brand-icon">BF</div>
+          <div>
+            <div class="brand-title">Bank Feature Store</div>
+            <div class="brand-subtitle">Transaction simulation</div>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link" href="dashboard.html">
+            <span data-feather="home"></span>
+            Dashboard
+          </a>
+          <a class="sidebar-link" href="customer.html">
+            <span data-feather="user"></span>
+            Customer Details
+          </a>
+          <a class="sidebar-link" href="prediction.html">
+            <span data-feather="cpu"></span>
+            Prediction
+          </a>
+          <a class="sidebar-link" href="transactions.html">
+            <span data-feather="bar-chart-2"></span>
+            Transactions
+          </a>
+          <a class="sidebar-link active" href="simulation.html">
+            <span data-feather="shuffle"></span>
+            Simulation
+          </a>
+          <a class="sidebar-link" href="sync.html">
+            <span data-feather="refresh-cw"></span>
+            Synchronization
+          </a>
+          <a class="sidebar-link" href="monitoring.html">
+            <span data-feather="monitor"></span>
+            Monitoring
+          </a>
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="topbar">
+          <div>
+            <h1>Transaction Simulation</h1>
+            <p>Run customer transaction simulations and visualize projected portfolio impact.</p>
+          </div>
+          <div class="topbar-actions">
+            <button class="btn btn-outline">Reset</button>
+            <button class="btn btn-primary">Export report</button>
+          </div>
+        </header>
+
+        <section class="panel simulation-grid">
+          <article class="card simulation-settings-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Customer selection</p>
+                <h2>Simulation settings</h2>
+              </div>
+            </div>
+            <div class="simulation-form">
+              <label>
+                Client ID
+                <input id="simulation-client-id" type="text" placeholder="Enter client ID" />
+              </label>
+              <label>
+                Number of Transactions
+                <input id="simulation-number-input" type="range" min="1" max="50" value="12" />
+                <span id="simulation-range-value" class="range-value">12 transactions</span>
+              </label>
+              <button id="simulation-run-button" class="btn btn-primary simulation-button">Generate Random Transactions</button>
+            </div>
+
+            <div class="simulation-progress-card">
+              <div class="progress-header">
+                <div>
+                  <p class="eyebrow">Simulation progress</p>
+                  <h2>Generating data</h2>
+                </div>
+                <span id="simulation-progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div id="simulation-progress-fill" class="progress-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card simulation-results-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Simulation results</p>
+                <h2>Estimated outcome</h2>
+              </div>
+            </div>
+            <div class="results-grid">
+              <div class="result-card">
+                <span>Total Amount</span>
+                <strong id="simulation-total-amount">-</strong>
+              </div>
+              <div class="result-card">
+                <span>Total Transactions</span>
+                <strong id="simulation-total-transactions">-</strong>
+              </div>
+              <div class="result-card">
+                <span>Utilization Ratio</span>
+                <strong id="simulation-utilization">-</strong>
+              </div>
+            </div>
+
+            <div class="timeline-card">
+              <div class="card-header">
+                <div>
+                  <p class="eyebrow">Timeline</p>
+                  <h2>Transaction flow</h2>
+                </div>
+              </div>
+              <div id="simulation-timeline-list" class="timeline-list">
+                <div class="timeline-item empty">
+                  <span class="timeline-step">—</span>
+                  <div>
+                    <p>No simulation data yet</p>
+                    <small>Run the simulation to view transaction flow.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../static/js/api.js"></script>
+    <script>
+      feather.replace({ 'stroke-width': 2.5 });
+    </script>
+  </body>
+</html>
