@@ -2,17 +2,6 @@
 
 A feature store implementation for machine learning data engineering pipelines.
 
-## 📋 Table of Contents
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## 📖 Overview
 
 This project implements a feature store for machine learning workflows, providing:
